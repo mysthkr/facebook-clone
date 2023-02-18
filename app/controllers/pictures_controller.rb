@@ -10,7 +10,8 @@ class PicturesController < ApplicationController
   end
   
   def create
-    @picture = Picture.new(post_params)
+    @picture = current_user.pictures.build(post_params)
+    
     if params[:back]
       render :new
     else
@@ -26,13 +27,18 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
   end
   
+  def confirm
+    @picture = current_user.pictures.build(post_params)
+    render :new if @picture.invalid?
+  end
+  
   private
   
-    def set_picture
-      @picture = Picture.find(params[:id])
-    end
+  def set_picture
+    @picture = Picture.find(params[:id])
+  end
 
   def post_params
-    params.require(:picuture).permit(:image, :image_cache, :comment)
+    params.require(:picture).permit(:image, :image_cache, :comment)
   end
 end

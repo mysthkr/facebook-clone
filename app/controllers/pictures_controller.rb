@@ -27,9 +27,27 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
   end
   
+  def edit
+    @picture = Picture.find(params[:id])
+  end
+  
+  def update
+    @picture = Picture.find(params[:id])
+     if @picture.update(post_params)
+      redirect_to pictures_path, notice: "投稿を編集しました！"
+    else
+      render :edit
+    end
+  end
+  
   def confirm
     @picture = current_user.pictures.build(post_params)
     render :new if @picture.invalid?
+  end
+  
+  def destroy
+    @picture.destroy
+    redirect_to pictures_path, notice:"投稿を削除しました！"
   end
   
   private

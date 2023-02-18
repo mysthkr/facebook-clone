@@ -9,7 +9,6 @@
 
 <% @pictures.each do |picture| %>
   <tr>
-    <td><%= picture.title %></td>
     <td><%= picture.image %></td>
     <td><%= picture.comment %></td>
     <td><%= link_to '詳細を確認する', picture_path(picture.id) %></td>

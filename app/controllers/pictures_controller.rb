@@ -28,6 +28,6 @@ class PicturesController < ApplicationController
   private
 
   def post_params
-    params.require(:picuture).permit(:comment)
+    params.require(:picuture).permit(:image, :image_cache, :comment)
   end
 end

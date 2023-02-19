@@ -3,6 +3,7 @@ class PicturesController < ApplicationController
   
   def index
     @pictures = Picture.all
+    @users = User.all
   end
   
   def new

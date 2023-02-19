@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="picture">
+  <div class="content">
     <%= form.label :image %>
     <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
     <%= form.file_field :image %>
@@ -26,3 +26,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+

@@ -2,7 +2,7 @@
 lock '3.16.0'
 
 # デプロイするアプリケーション名
-set :application, 'achieve'
+set :application, 'facebook_work'
 
 # cloneするgitのレポジトリ
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
